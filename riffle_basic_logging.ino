@@ -2,7 +2,6 @@
 #include <Wire.h>
 #include <SPI.h>
 #include <DS3232RTC.h>        //http://github.com/JChristensen/DS3232RTC
-#include <Streaming.h>        //http://arduiniana.org/libraries/streaming/
 #include<stdlib.h>
 #include <SD.h>
 #include <Time.h>  
@@ -48,9 +47,9 @@ for (int i=0;i<3;i++) {
   // RTC setup
 
  setSyncProvider(RTC.get);
-    Serial << F("RTC Sync");
-    if (timeStatus() != timeSet) Serial << F(" FAIL!");
-    Serial << endl;
+    //Serial << F("RTC Sync");
+    //if (timeStatus() != timeSet) Serial << F(" FAIL!");
+    //Serial << endl;
 
     
   
@@ -167,7 +166,7 @@ t = now();
   
   // open the file. note that only one file can be open at a time,
   // so you have to close this one before opening another.
-  File dataFile = SD.open("datalog1.txt", FILE_WRITE);
+  File dataFile = SD.open("datalog1.csv", FILE_WRITE);
 
   // if the file is available, write to it:
   if (dataFile) {
@@ -243,16 +242,3 @@ LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
 
 }
 
-
-//Print an integer in "00" format (with leading zero),
-//followed by a delimiter character to Serial.
-//Input value assumed to be between 0 and 99.
-void printI00(int val, char delim)
-{
-    if (val < 10) Serial << '0';
-    Serial << _DEC(val);
-    if (delim > 0) Serial << delim;
-    return;
-}
-  
-  
