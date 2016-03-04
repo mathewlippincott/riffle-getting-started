@@ -1,4 +1,4 @@
-# riffle-getting-started
+# Getting started with the Riffle datalogger
 
 ## Hardware requirements
 
@@ -6,17 +6,20 @@
 - CR1220 coin cell battery
 - main battery (3.7 V - 6 v)
 
-## Blinking the onboard LED 
+## First steps
+
+
+### Blinking the onboard LED 
 
 - code
 
-## Setting the Real Time Clock
+### Setting the Real Time Clock
 
 The real time clock (RTC) is useful for assigning accurate timestamps to recorded measurements.
  
 There is an Arduino sketch that allows one to set the time manually.  It will then be maintained for as long as the RTC battery lasts (typically, a year or more). 
 
-## Basic datalogging
+### Basic datalogging
 
 This sketch will log data to the sd card at intervals of N seconds.  The format of the output is:
 
